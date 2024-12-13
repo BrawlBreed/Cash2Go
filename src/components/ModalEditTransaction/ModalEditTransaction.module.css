@@ -1,0 +1,244 @@
+@import '../../stylesheet/vars.css';
+
+.backdrop {
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: min-content;
+  min-height: calc(min-content + 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg-backdrop);
+  overflow: hidden;
+ 
+  @media screen and (min-width: 768px) {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: -80px;
+    height: calc(100% + 80px);
+  }
+}
+
+.overlay {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  padding: 80px 5px 135px 5px;
+  align-items: center;
+  background-color: var(--color-bg-secondary);
+  width: 100%;
+  height: min-content;
+  min-height: 100vh;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  @media screen and (min-width: 768px) {
+    overflow: visible;
+    min-height: min-content;
+    padding: 50px 5px 50px 5px;
+  }
+}
+
+.switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.overlay h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.comment {
+  border-top: 1px solid transparent;
+  border-left: 1px;
+  border-right: 1px;
+  padding-left: 15px;
+  width: 280px;
+  line-height: 1.4rem;
+  resize: none;
+  background-color: transparent;
+  outline: none;
+  resize: vertical;
+}
+
+.inputWrapper {
+  display: inline-block;
+  width: 280px;
+  height: 32px;
+}
+
+.tableDatetime {
+  position: absolute;
+  width: 280px;
+  border-collapse: collapse;
+  z-index: 5;
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-bg-blur);
+  backdrop-filter: blur(5px);
+}
+
+.rdtPicker table {
+  width: 81%;
+  margin: 0;
+}
+.calendarIcon {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.noBorder {
+  border: none;
+}
+.selectCategoryIcon {
+  position: absolute;
+  width: 18px;
+  height: 9px;
+  right: 10px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.iconMarginLeft {
+  margin-left: -20px;
+}
+
+.datetime input {
+  border: none;
+}
+
+.form .input {
+  width: 280px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 40px;
+}
+
+.selectContainer {
+  width: 280px;
+}
+
+.paddingButton {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .overlay {
+    width: 540px;
+    height: min-content;
+    padding: 40px 73px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 14px;
+  }
+
+  .main_btn {
+    margin-bottom: 30px;
+  }
+  .form .input {
+    width: 181px;
+  }
+  .inputContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    width: 400px;
+    gap: 40px;
+  }
+
+  .inputWrapper {
+    display: inline-block;
+    width: 180px;
+    height: 32px;
+  }
+
+  .tableDatetime {
+    width: 180px;
+  }
+
+  .datetime {
+    width: 180px;
+  }
+
+  .selectContainer {
+    width: 400px;
+  }
+
+  .selectContainer select:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+  .comment {
+    width: 400px;
+    height: min-content;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .overlay {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 14px;
+  }
+}
+
+.logo_btn {
+  background-color: var(--color-text-income-green);
+  border: transparent;
+  margin-bottom: 20px;
+}
+
+.logo_btn:hover,
+.logo_btn:focus {
+  background-color: var(--color-bg-btn-active-hover);
+}
+
+.text_green {
+  color: #24cca7;
+  padding: 0 20px;
+}
+
+.text_pink {
+  padding: 0 20px;
+  color: var(--color-text-expanse-pink);
+}
+
+.text_defaultLeft {
+  padding: 0 20px;
+  font-size: 16px;
+  color: var(--color-text-disabled-btn-gray);
+}
+
+.text_defaultRight {
+  padding: 0 20px;
+  font-size: 16px;
+  color: var(--color-text-disabled-btn-gray);
+}

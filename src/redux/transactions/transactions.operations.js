@@ -7,7 +7,7 @@ const backendBaseUrl = `${import.meta.env.VITE_BACKEND_SERVER_URL}`;
 //   ? `http://127.0.0.1:3000`
 //   : `${import.meta.env.VITE_BACKEND_SERVER_URL}/#`);
 
-axios.defaults.baseURL = backendBaseUrl;
+axios.defaults.baseURL = backendBaseUrl + '/api/';
 
 const fetchTransactions = createAsyncThunk('transactions/fetchAll', async (_, thunkAPI) => {
   try {

@@ -6,10 +6,10 @@ const backendBaseUrl = import.meta.env.VITE_NODE_ENV === 'development'
   ? `http://127.0.0.1:5000`
   : import.meta.env.VITE_BACKEND_SERVER_URL || 'http://localhost:5000';
 
-axios.defaults.baseURL = backendBaseUrl;
+axios.defaults.baseURL = backendBaseUrl + "/api/";
 
 const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`; 
 };
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
@@ -20,7 +20,7 @@ export const register = createAsyncThunk('auth/register', async (credentials, th
   ? `http://127.0.0.1:5000`
   : import.meta.env.VITE_BACKEND_SERVER_URL || 'http://localhost:5000';
 
-  axios.defaults.baseURL = backendBaseUrl;
+  axios.defaults.baseURL = backendBaseUrl + "/api/";
   try {
     const response = await axios.post(`/users/signup`, credentials);
     if (response.status !== 201) {
@@ -39,7 +39,7 @@ export const verify = createAsyncThunk('auth/verify', async (verificationToken, 
   ? `http://127.0.0.1:5000`
   : import.meta.env.VITE_BACKEND_SERVER_URL || 'http://localhost:5000';
 
-  axios.defaults.baseURL = backendBaseUrl;
+  axios.defaults.baseURL = backendBaseUrl + "/api/";
   try {
     const response = await axios.get(`/users/verify/${verificationToken}`);
     if (response.status !== 200) {
@@ -58,7 +58,7 @@ export const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI
   ? `http://127.0.0.1:5000`
   : import.meta.env.VITE_BACKEND_SERVER_URL || 'http://localhost:5000';
 
-  axios.defaults.baseURL = backendBaseUrl;
+  axios.defaults.baseURL = backendBaseUrl + "/api/";
   try {
     const response = await axios.post(`/users/login`, credentials);
     if (response.status != 200) {
@@ -77,7 +77,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   ? `http://127.0.0.1:5000`
   : import.meta.env.VITE_BACKEND_SERVER_URL || 'http://localhost:5000';
 
-  axios.defaults.baseURL = backendBaseUrl;
+  axios.defaults.baseURL = backendBaseUrl + "/api/";
   try {
     const response = await axios.get(`/users/logout`);
     if (response.data.code !== 200) {
@@ -95,7 +95,7 @@ export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) 
   ? `http://127.0.0.1:5000`
   : import.meta.env.VITE_BACKEND_SERVER_URL || 'http://localhost:5000';
 
-  axios.defaults.baseURL = backendBaseUrl;
+  axios.defaults.baseURL = backendBaseUrl + "/api/";
   // Reading the token from the state via getState()
   const state = thunkAPI.getState();
   const persistedToken = state?.auth?.token;

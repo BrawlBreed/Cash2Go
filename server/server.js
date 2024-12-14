@@ -19,9 +19,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use(express.static('public'));
-app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerOutput));
-app.use('/users', usersRouter);
-app.use('/transactions', transactionsRouter);
+app.use('/api/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerOutput));
+app.use('/api/users', usersRouter);
+app.use('/api/transactions', transactionsRouter);
 
 app.use((_, res, __) => {
   res.status(404).json({
